@@ -1,0 +1,26 @@
+language: go
+go:
+  - 1.8
+
+# Don't build other branches that are being used for PRs.
+# Currently only the master branch is used in this repo.
+branches:
+  only:
+    - master
+
+before_install:
+- go get github.com/mitchellh/gox
+- go get -u github.com/kyoh86/richgo
+- go get github.com/axw/gocov/gocov
+- go get github.com/mattn/goveralls
+- go get -u github.com/golang/lint/golint
+- go get -u github.com/haya14busa/goverage
+
+script:
+  - go vet ./...
+  - golint -set_exit_status .
+  - goverage -v -coverprofile=c.out ./...
+  - goveralls -coverprofile=c.out -service travis-ci -repotoken $COVERALLS_TOKEN
+
+after_success:
+  - gox -output "dist/{{.OS}}_{{.Arch}}_{{.Dir}}"
