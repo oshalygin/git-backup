@@ -1,0 +1,19 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "AANTVr9CVVyzsgviODY6Wi2thuM=",
+			"path": "github.com/fatih/color",
+			"revision": "62e9147c64a1ed519147b62a56a14e83e2be02c1",
+			"revisionTime": "2017-05-23T20:24:04Z"
+		},
+		{
+			"checksumSHA1": "ip3Xz/dILw2RMM6Z0MzAj5TUZ/c=",
+			"path": "github.com/franela/goblin",
+			"revision": "2fa789fd0c6b7975acbfb89a04830b4081a7b0e9",
+			"revisionTime": "2017-01-11T05:10:28Z"
+		}
+	],
+	"rootPath": "github.com/oshalygin/git-backup"
+}
