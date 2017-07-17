@@ -4,12 +4,17 @@ import (
 	"errors"
 )
 
-func checkRequiredFlags(path string) error {
+func checkRequiredFlags(pathArgument string, path string) error {
 
-	if path == "" {
+	if pathArgument != "" && path != "" && pathArgument != path {
+		err := "Cannot set a path flag AND an argument"
+		return errors.New(err)
+	}
+
+	if path == "" && pathArgument == "" {
 		err := `The "path" flag must be set`
 		return errors.New(err)
 	}
-	return nil
 
+	return nil
 }

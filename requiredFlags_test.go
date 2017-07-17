@@ -13,17 +13,28 @@ func Test(t *testing.T) {
 		g.It("should throw an error if the path flag was not set", func() {
 
 			flag := ""
+			pathArgument := ""
 			expected := "The \"path\" flag must be set"
 
-			actual := checkRequiredFlags(flag).Error()
+			actual := checkRequiredFlags(pathArgument, flag).Error()
 			g.Assert(actual).Equal(expected)
 		})
 
 		g.It("should set error to nil if the path flag was set", func() {
 
-			flag := "./projects"
+			path := "./projects"
+			pathArgument := ""
 
-			actual := checkRequiredFlags(flag)
+			actual := checkRequiredFlags(pathArgument, path)
+			g.Assert(actual).Equal(nil)
+		})
+
+		g.It("should set error to nil if the path argument is passed in", func() {
+
+			path := ""
+			pathArgument := "./projects"
+
+			actual := checkRequiredFlags(pathArgument, path)
 			g.Assert(actual).Equal(nil)
 		})
 

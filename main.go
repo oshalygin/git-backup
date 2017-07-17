@@ -11,13 +11,16 @@ var path string
 
 func init() {
 	flag.StringVar(&path, "path", "", "Project repository location")
+	flag.Parse()
 }
 
 func main() {
 
-	err := checkRequiredFlags(path)
+	pathArgument := flag.Arg(0)
+	err := checkRequiredFlags(pathArgument, path)
+
 	if err != nil {
-		color.Red("A project repository path MUST be provided.")
+		color.Red(err.Error())
 		flag.PrintDefaults()
 
 		os.Exit(1)
