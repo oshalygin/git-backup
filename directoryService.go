@@ -1,16 +1,20 @@
 package main
 
 import (
-	"os"
-	"path/filepath"
+	"io/ioutil"
 )
 
-// Retrieve a list of directories to iterate through
-func GetDirectoriesInPath(directoryPath string) {
-	filepath.Walk(directoryPath, func(path string, info os.FileInfo, err error) error {
-		if !info.IsDir() {
-			println(info.Name())
+// GetDirectoriesInPath returns a list of directories to iterate through
+func GetDirectoriesInPath(directoryPath string) []string {
+
+	directories := make([]string, 0)
+	files, _ := ioutil.ReadDir(directoryPath)
+
+	for _, file := range files {
+		if file.IsDir() {
+			directories = append(directories, file.Name())
 		}
-		return nil
-	})
+	}
+
+	return directories
 }

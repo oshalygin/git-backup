@@ -6,7 +6,7 @@ import (
 	. "github.com/franela/goblin"
 )
 
-func Test(t *testing.T) {
+func Test_RequiredFlags(t *testing.T) {
 	g := Goblin(t)
 	g.Describe("Required Flags", func() {
 

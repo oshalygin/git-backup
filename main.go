@@ -8,7 +8,6 @@ import (
 )
 
 var path string
-var directoryPath string
 
 func init() {
 	flag.StringVar(&path, "path", "", "Project repository location")
@@ -18,7 +17,7 @@ func init() {
 func main() {
 
 	pathArgument := flag.Arg(0)
-	_, err := checkRequiredFlags(pathArgument, path)
+	directoryPath, err := checkRequiredFlags(pathArgument, path)
 
 	if err != nil {
 		color.Red(err.Error())
@@ -27,6 +26,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	//GetDirectoriesInPath()
+	directories := GetDirectoriesInPath(directoryPath)
+	for _, dir := range directories {
+		println(dir)
+	}
 
 }
