@@ -1,3 +1,7 @@
+## 0.0.3 (July 17, 2017)
+
+- Add logic to set a single pathDirectory value
+    
 ## 0.0.2 (July 15, 2017)
 
 - Add concrete concrete tests:
