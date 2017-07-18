@@ -1,3 +1,7 @@
+## 0.0.4 (July 17, 2017)
+
+- Add go-git vendor package which will be used to initiate git commands.
+
 ## 0.0.3 (July 17, 2017)
 
 - Add logic to set a single pathDirectory value

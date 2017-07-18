@@ -13,6 +13,12 @@
 			"path": "github.com/franela/goblin",
 			"revision": "2fa789fd0c6b7975acbfb89a04830b4081a7b0e9",
 			"revisionTime": "2017-01-11T05:10:28Z"
+		},
+		{
+			"checksumSHA1": "dVMrH9O442VjBwN7xfapUWnfKmg=",
+			"path": "gopkg.in/src-d/go-git.v4",
+			"revision": "ad02bf020460c210660db4fffda7f926b6aae95a",
+			"revisionTime": "2017-06-21T18:17:04Z"
 		}
 	],
 	"rootPath": "github.com/oshalygin/git-backup"
