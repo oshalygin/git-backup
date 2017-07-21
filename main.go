@@ -28,6 +28,7 @@ func main() {
 
 	directories := GetDirectoriesInPath(directoryPath)
 	for _, dir := range directories {
+		FetchLatest(dir)
 		PullLatest(dir)
 	}
 

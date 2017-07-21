@@ -8,13 +8,22 @@ import (
 	"github.com/fatih/color"
 )
 
-// PullLatest retrieves the most recent code from the codebase
-func PullLatest(directory string) bool {
+func printOutput(buffer ...*Buffer) {
 
-	color.Green("PULL: %s", directory)
+	for _, output := range buffer {
+		if output != nil {
+			fmt.Print(string(output.Bytes()))
+		}
+	}
+}
+
+// FetchLatest fetches all remote branches
+func FetchLatest(directory string) bool {
+
+	color.Green("FETCH: %s", directory)
 
 	commandName := "git"
-	args := []string{"pull", "origin", "master"}
+	args := []string{"fetch", "--all"}
 
 	command := exec.Command(commandName, args...)
 	command.Dir = directory
@@ -26,12 +35,38 @@ func PullLatest(directory string) bool {
 
 	err := command.Run()
 
-	if commandErrorOutput != nil {
-		fmt.Print(string(commandErrorOutput.Bytes()))
+	printOutput(commandOutput, commandErrorOutput)
+
+	if err != nil {
+		fmt.Println(err.Error())
+		color.Red("FETCH ERROR: %s", directory)
+		return false
 	}
-	if commandOutput != nil {
-		fmt.Print(string(commandOutput.Bytes()))
-	}
+
+	color.Green("FETCH SUCCESS: %s", directory)
+	return true
+
+}
+
+// PullLatest retrieves the most recent code from the codebase
+func PullLatest(directory string) bool {
+
+	color.Green("PULL: %s", directory)
+
+	commandName := "git"
+	args := []string{"pull", "--all"}
+
+	command := exec.Command(commandName, args...)
+	command.Dir = directory
+
+	commandOutput := &bytes.Buffer{}
+	commandErrorOutput := &bytes.Buffer{}
+	command.Stdout = commandOutput
+	command.Stderr = commandErrorOutput
+
+	err := command.Run()
+
+	printOutput(commandOutput, commandErrorOutput)
 
 	if err != nil {
 		fmt.Println(err.Error())
