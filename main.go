@@ -30,6 +30,7 @@ func main() {
 	for _, dir := range directories {
 		FetchLatest(dir)
 		PullLatest(dir)
+		PushLatest(dir)
 	}
 
 }

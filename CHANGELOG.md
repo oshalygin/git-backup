@@ -1,3 +1,7 @@
+## 1.0.0 (July 21, 2017)
+
+- Addition of a git push to the backup repository in BitBucket.
+
 ## 0.0.8 (July 21, 2017)
 
 - Refactored code and added a fetch step.
