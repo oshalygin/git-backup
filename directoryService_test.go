@@ -10,15 +10,14 @@ func Test_DirectoryService(t *testing.T) {
 	g := Goblin(t)
 	g.Describe("Directory Service", func() {
 
-		g.It("should return three directories in the current project directory", func() {
+		g.It("should return the directories in the current project directory", func() {
 
 			path := "."
-			expected := 3
 
 			directories := GetDirectoriesInPath(path)
-			actual := len(directories)
+			actual := len(directories) > 0
 
-			g.Assert(actual).Equal(expected)
+			g.Assert(actual).Equal(true)
 		})
 
 		g.It("should return 'vendor' as one of the directories in the current path", func() {

@@ -1,3 +1,7 @@
+## 0.0.7 (July 21, 2017)
+
+- Addition of a git pull service that iterates through the given directories and pulls the latest master branch for each repository.
+
 ## 0.0.6 (July 17, 2017)
 
 - Refactor directoryPath to be set from the requiredFlags check.
