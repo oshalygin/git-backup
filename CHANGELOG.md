@@ -1,3 +1,10 @@
+## 1.0.1 (July 21, 2017)
+
+- Addition logos that will be used in the README
+  - Bitbucket logo
+  - GitHub logo
+  - Golang Logo
+
 ## 1.0.0 (July 21, 2017)
 
 - Addition of a git push to the backup repository in BitBucket.
