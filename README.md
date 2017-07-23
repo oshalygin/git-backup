@@ -17,11 +17,28 @@
 
 # Introduction
 
-This is a simple and straightforward CLI that allows you to backup your git projects to bitbucket.  
+This is a simple and straightforward CLI utility that allows you to backup your git projects to BitBucket.
+
+# Motivation
+
+It is common to be working on public projects on GitHub that you also want another copy of to your BitBucket account.  There are a number of use cases that come to mind that might prompt you to start doing this, such as:
+
+* Ensuring you always have a backup in case other collaborates have force push access.
+* If you're working with microservices and you want to pull down the latest code from all of the different repositories and have a backup on BitBucket
 
 # Requirements
 
-In the early stages of this utility, it is assumed that you have your git remote setup, specifically that the remote for bitbucket is named _"bitbucket"_.  If one is not setup, it will throw an error intentionally.
+Without bloating the utility with a ton of _required_ options, the `git-backup` depends on certain aspects being present in each of your git repositories.
+
+1. Make sure you have an origin remote configured.  Branches will be fetched/pulled from this source.
+2. Make sure that you have a bitbucket remote configured.  All branches will be pushed to this source.
+
+```bash
+# If you dont have your sources configured, you can do something along these lines:
+git remote add origin git@github.com:oshalygin/git-backup.git
+git remote add bitbucket https://oshalygin@bitbucket.org/oshalygin/git-backup.git
+
+```
 
 # Installation
 
@@ -45,6 +62,9 @@ Usage of git-backup:
 
 git-backup --path=../projects
 
+# Or use the shorthand
+git-backup .  # This will run the utility and iterate over all of the folders in the current path
+
 ```
 
 ### Command Line Arguments
@@ -52,7 +72,7 @@ git-backup --path=../projects
 **path**: The path that contains all of the git projects that are to be backed up. 
 
 # Limitations
-* TBD
+The utility depends on the requirements, in the future this will be expanded into CLI options.
 
 # License
 
