@@ -1,3 +1,7 @@
+## 1.1.0 (July 25, 2017)
+
+- Addition of Git Service tests
+
 ## 1.0.1 (July 21, 2017)
 
 - Addition logos that will be used in the README

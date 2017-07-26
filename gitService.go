@@ -8,6 +8,8 @@ import (
 	"github.com/fatih/color"
 )
 
+var execCommand = exec.Command
+
 func printOutput(buffer ...*bytes.Buffer) {
 
 	for _, output := range buffer {
@@ -25,7 +27,7 @@ func FetchLatest(directory string) bool {
 	commandName := "git"
 	args := []string{"fetch", "--all"}
 
-	command := exec.Command(commandName, args...)
+	command := execCommand(commandName, args...)
 	command.Dir = directory
 
 	commandOutput := &bytes.Buffer{}
@@ -56,7 +58,7 @@ func PullLatest(directory string) bool {
 	commandName := "git"
 	args := []string{"pull", "--all"}
 
-	command := exec.Command(commandName, args...)
+	command := execCommand(commandName, args...)
 	command.Dir = directory
 
 	commandOutput := &bytes.Buffer{}
@@ -87,7 +89,7 @@ func PushLatest(directory string) bool {
 	commandName := "git"
 	args := []string{"push", "bitbucket", "--all"}
 
-	command := exec.Command(commandName, args...)
+	command := execCommand(commandName, args...)
 	command.Dir = directory
 
 	commandOutput := &bytes.Buffer{}
