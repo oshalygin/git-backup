@@ -1,3 +1,7 @@
+## 1.2.0 (July 25, 2017)
+
+- Updated README to reflect the proper link to Coveralls
+
 ## 1.1.0 (July 25, 2017)
 
 - Addition of Git Service tests
